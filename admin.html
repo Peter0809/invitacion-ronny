@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Panel Admin</title>
+
+https://cdn.jsdelivr.net/npm/@supabase/supabase-jsscript>
+
+<style>
+body{
+    font-family:Arial;
+    padding:30px;
+}
+
+.card{
+    max-width:800px;
+    margin:auto;
+}
+
+li{
+    padding:10px;
+    margin:10px 0;
+    background:#f2f2f2;
+    border-radius:8px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>🎵 Canciones Solicitadas</h1>
+
+<ul id="songs"></ul>
+</div>
+
+<script>
+
+const supabaseUrl = "TU_SUPABASE_URL";
+const supabaseKey = "TU_SUPABASE_ANON_KEY";
+
+const client = supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+async function cargar(){
+
+const { data } = await client
+.from("song_requests")
+.select("*")
+.order("created_at",{ascending:false});
+
+const ul =
+document.getElementById("songs");
+
+ul.innerHTML = "";
+
+data.forEach(item=>{
+
+ul.innerHTML += `
+<li>
+${item.song}
+</li>
+`;
+
+});
+
+}
+
+cargar();
+
+</script>
+
+</body>
+</html>

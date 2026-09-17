@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación de Ronny</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+    font-family: Arial,sans-serif;
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:50px;
+}
+
+.card{
+    max-width:600px;
+    margin:auto;
+    background:#222;
+    padding:30px;
+    border-radius:20px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:15px 30px;
+    border:none;
+    border-radius:10px;
+    background:#1DB954;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+#status{
+    margin-top:15px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+<h1>🎉 Invitación de Ronny 🎉</h1>
+
+<p>
+Ayúdanos a crear la playlist de la fiesta.
+</p>
+
+<input
+id="song"
+placeholder="Pega aquí un link de Spotify, Apple Music o el nombre de la canción">
+
+<button onclick="guardarCancion()">
+Agregar Canción 🎵
+</button>
+
+<p id="status"></p>
+
+</div>
+
+<script>
+
+const supabaseUrl = "https://rluqpkxzfjcxjqjmfrrj.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsdXFwa3h6ZmpjeGpxam1mcnJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk2NzAyNjAsImV4cCI6MjEwNTI0NjI2MH0.GfxqlUPxsmOoQA7tTTzVjl2DFalGfXrr7Bklmpou2lc";
+
+const client = supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+async function guardarCancion(){
+
+    const song =
+        document.getElementById("song").value;
+
+    if(!song.trim()){
+        alert("Escribe una canción");
+        return;
+    }
+
+    const { error } =
+        await client
+        .from("song_requests")
+        .insert([
+            {
+                song: song
+            }
+        ]);
+
+    if(error){
+        document.getElementById("status").innerText =
+        "❌ Error al guardar";
+        return;
+    }
+
+    document.getElementById("status").innerText =
+    "✅ Canción enviada";
+
+    document.getElementById("song").value = "";
+}
+
+</script>
+
+</body>
+</html>
