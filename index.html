@@ -9,70 +9,25 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<style>
-body{
-    font-family: Arial,sans-serif;
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:50px;
-}
-
-.card{
-    max-width:600px;
-    margin:auto;
-    background:#222;
-    padding:30px;
-    border-radius:20px;
-}
-
-input{
-    width:100%;
-    padding:15px;
-    margin-top:15px;
-    border:none;
-    border-radius:10px;
-}
-
-button{
-    margin-top:15px;
-    padding:15px 30px;
-    border:none;
-    border-radius:10px;
-    background:#1DB954;
-    color:white;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.9;
-}
-
-#status{
-    margin-top:15px;
-}
-</style>
+<style src="styles.css"></style>
 </head>
 <body>
 
 <div class="card">
+    <h1>🎉 Invitación de Ronny 🎉</h1>
+    <p>Busca tu canción favorita para añadirla a la playlist de la fiesta:</p>
 
-<h1>🎉 Invitación de Ronny 🎉</h1>
+    <div class="search-container">
+        <input 
+            id="search" 
+            type="text" 
+            placeholder="Escribe el nombre de la canción o artista..." 
+            oninput="buscarCanciones()"
+            autocomplete="off">
+        <div id="results" class="results-list"></div>
+    </div>
 
-<p>
-Ayúdanos a crear la playlist de la fiesta.
-</p>
-
-<input
-id="song"
-placeholder="Ingresa el nombre de la canción y el artista">
-
-<button onclick="guardarCancion()">
-Agregar Canción 🎵
-</button>
-
-<p id="status"></p>
-
+    <p id="status"></p>
 </div>
 
 <script src="script.js"></script>
