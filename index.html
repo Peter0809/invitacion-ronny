@@ -125,5 +125,20 @@ async function guardarCancion(){
 <!-- Botón de control flotante -->
 <button id="music-toggle" onclick="toggleMusica()">🎵 Reproducir música</button>
 
+<script>
+function toggleMusica() {
+    const audio = document.getElementById("bg-music");
+    const btn = document.getElementById("music-toggle");
+
+    if (audio.paused) {
+        audio.play();
+        btn.innerText = "🔊 Pausar música";
+    } else {
+        audio.pause();
+        btn.innerText = "🎵 Reproducir música";
+    }
+}
+</script>
+
 </body>
 </html>
