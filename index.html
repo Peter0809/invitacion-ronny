@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Invitación de Ronny</title>
+<!-- Vinculación del archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -115,6 +117,13 @@ async function guardarCancion(){
 }
 
 </script>
+
+<audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Botón de control flotante -->
+<button id="music-toggle" onclick="toggleMusica()">🎵 Reproducir música</button>
 
 </body>
 </html>

@@ -1,0 +1,18 @@
+/*
+ * index.css
+ * Styles for the main page of the application.
+ */
+#music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #222;
+    border: 1px solid #1DB954;
+    color: #1DB954;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    margin-top: 0;
+}
