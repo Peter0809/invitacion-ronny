@@ -142,6 +142,73 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
+    /* Sección de Ubicación */
+    .location-container {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .map-frame {
+        width: 100%;
+        height: 200px;
+        border: 0;
+        border-radius: 12px;
+        margin-top: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .btn-map {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 12px 24px;
+        background-color: #ea4335; /* Rojo Google Maps */
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn-map:hover {
+        background-color: #d93025;
+        transform: scale(1.03);
+    }
+
+    /* Contenedor exterior que oculta lo que sale de la pantalla */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+  background: #1DB954; /* Fondo estilo verde Spotify */
+    color: black;
+    font-weight: bold;
+  padding: 10px 0;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+/* Tira de texto que se mueve de forma continua */
+.ticker-move {
+  display: flex;
+  width: max-content;
+  animation: ticker 30s linear infinite;
+}
+
+.ticker-item {
+    white-space: nowrap;
+    padding-right: 50px;
+}
+
+/* Movimiento de derecha a izquierda */
+@keyframes ticker {
+    0% {
+    transform: translateX(0);
+    }
+    100% {
+    transform: translateX(-50%);
+    }
+}
     </style>
 </head>
 <body>
@@ -151,9 +218,15 @@
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
     <button id="music-toggle" onclick="toggleMusica()">🎵 Reproducir música</button>
+    <div class="ticker-wrap">
+    <div class="ticker-move">
+    <div class="ticker-item">👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​❗​​❗​​  👻 NO TE LO PIERDAS​ 👻​ ​​🔞​❗​❗​​❗​​​🔞​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​❗​​❗​​​  👻 NO TE LO PIERDAS​ 👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​❗​​❗​​  👻 NO TE LO PIERDAS​ 👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻</div>
+    <div class="ticker-item">👻​ ​❗​❗​​❗​​​🔞​ VIERNES 25 DE SEPTIEMBRE ​​🔞​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​ ​​🔞​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​ ​❗​❗​​❗​​​🔞​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​</div>
+    </div>
+</div>
 
     <div class="card">
-        <h1>🎉 Invitación de Ronny 🎉</h1>
+        <h1>🔥​ CUMPLE RONNY 🔥​</h1>
         <p>Busca tu canción favorita para añadirla a la playlist de la fiesta:</p>
 
         <!-- Contenedor del Buscador -->
@@ -167,8 +240,39 @@
             <div id="results" class="results-list"></div>
         </div>
 
-        <p id="status"></p>
+        <!-- Sección de Ubicación -->
+<div class="location-container">
+    <h2>📍 LA UBI</h2>
+
+    <!-- Mapa Interactivo (reemplaza el 'src' por el de tu ubicación) -->
+<iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.4841137140083!2d3.9039018!3d43.59646079999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x61a907b2ba477675%3A0x638c69228187be11!2sKley%20Montpellier%20-%20R%C3%A9sidence%20%C3%A9tudiante!5e0!3m2!1sfr!2sfr!4v1790090409198!5m2!1sfr!2sfr" 
+    width="350" 
+    height="350" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="strict-origin-when-cross-origin">
+</iframe>
+
+    <!-- Botón para abrir directamente en la app del celular -->
+    <div>
+        <a href="https://www.google.fr/maps/place/Kley+Montpellier+-+R%C3%A9sidence+%C3%A9tudiante/@43.5964647,3.9013269,17z/data=!3m1!4b1!4m6!3m5!1s0x61a907b2ba477675:0x638c69228187be11!8m2!3d43.5964608!4d3.9039018!16s%2Fg%2F11rckwj5l8?entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-map">
+            🚗 Abrir en Google Maps
+        </a>
     </div>
+</div>
+
+        <p id="status"></p>
+  
+            </div>
+
+    <div class="ticker-wrap">
+    <div class="ticker-move">
+    <div class="ticker-item">👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​❗​​❗​​  👻 NO TE LO PIERDAS​ 👻​ ​​🔞​❗​❗​​❗​​​🔞​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​❗​​❗​​​  👻 NO TE LO PIERDAS​ 👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​❗​​❗​​  👻 NO TE LO PIERDAS​ 👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻</div>
+    <div class="ticker-item">👻​ ​❗​❗​​❗​​​🔞​ VIERNES 25 DE SEPTIEMBRE ​​🔞​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​ ​​🔞​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​ ​❗​❗​​❗​​​🔞​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​ ​❗​​❗​​❗​🔞​​ VIERNES 25 DE SEPTIEMBRE ​🔞​​❗​​❗​​❗​  👻 NO TE LO PIERDAS​ 👻​</div>
+    </div>
+</div>
 
     <script>
         // Configuración de Supabase
@@ -244,24 +348,64 @@
             document.getElementById("status").innerText = `✅ ¡Añadida: "${nombreCancion}"!`;
         }
 
-        // Control del reproductor de música
-        function toggleMusica() {
-            const audio = document.getElementById("bg-music");
-            const btn = document.getElementById("music-toggle");
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("bg-music");
+    const btn = document.getElementById("music-toggle");
 
+    if (!audio) return;
+
+    // Función para actualizar la apariencia del botón
+    function actualizarBotonMusica(sonando) {
+        if (!btn) return;
+        if (sonando) {
+            btn.innerText = "🔊 Pausar música";
+            btn.style.background = "#1DB954";
+            btn.style.color = "white";
+        } else {
+            btn.innerText = "🎵 Reproducir música";
+            btn.style.background = "#222";
+            btn.style.color = "#1DB954";
+        }
+    }
+
+    // 1. Control manual al hacer clic directamente en el botón
+    if (btn) {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation(); // Evita que se active el listener global al pulsar el botón
             if (audio.paused) {
-                audio.play().then(() => {
-                    btn.innerText = "🔊 Pausar música";
-                    btn.style.background = "#1DB954";
-                    btn.style.color = "white";
-                }).catch(e => console.log("Se requiere interacción para reproducir audio:", e));
+                audio.play();
+                actualizarBotonMusica(true);
             } else {
                 audio.pause();
-                btn.innerText = "🎵 Reproducir música";
-                btn.style.background = "#222";
-                btn.style.color = "#1DB954";
+                actualizarBotonMusica(false);
             }
-        }
+        });
+    }
+
+    // 2. Intento de reproducción automática al cargar la página
+    audio.play().then(() => {
+        actualizarBotonMusica(true);
+    }).catch(() => {
+        // 3. Si el navegador lo bloquea, se activa con el primer clic, toque O SCROLL
+        const activarAudioAlInteractuar = () => {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    actualizarBotonMusica(true);
+                }).catch(e => console.log("Audio aún no permitido:", e));
+            }
+
+            // Remueve todos los listeners tras la primera interacción
+            document.removeEventListener("click", activarAudioAlInteractuar);
+            document.removeEventListener("touchstart", activarAudioAlInteractuar);
+            window.removeEventListener("scroll", activarAudioAlInteractuar);
+        };
+
+        // Escucha clics, toques en pantalla táctil y desplazamiento (scroll)
+        document.addEventListener("click", activarAudioAlInteractuar);
+        document.addEventListener("touchstart", activarAudioInteractuar);
+        window.addEventListener("scroll", activarAudioInteractuar);
+    });
+});
     </script>
 </body>
 </html>
